@@ -1,0 +1,25 @@
+<div class="jogo">
+    <h2>Jogo da velha</h2>
+    <p *ngIf="tempo>=0" [ngStyle]="{'color': tempo === 0 ? 'red' : 'black'}">Tempo restante: {{tempo}} segundos</p>
+    <section class="tabuleiro">
+        <div class="linha baixo">
+            <div (click)="jogar(0,0)" class="casa direita" [ngClass]="{'text-primary':jogo[0][0] === 'X', 'text-success':jogo[0][0] === 'O'}">{{jogo[0][0]}}</div>
+            <div (click)="jogar(0,1)" class="casa direita" [ngClass]="{'text-primary':jogo[0][1] === 'X', 'text-success':jogo[0][1] === 'O'}">{{jogo[0][1]}}</div>
+        <div (click)="jogar(0,2)" class="casa" [ngClass]="{'text-primary':jogo[0][2] === 'X', 'text-success':jogo[0][2] === 'O'}">{{jogo[0][2]}}</div>
+    </div>
+    <div class="linha baixo">
+        <div (click)="jogar(1,0)" class="casa direita" [ngClass]="{'text-primary':jogo[1][0] === 'X', 'text-success':jogo[1][0] === 'O'}">{{jogo[1][0]}}</div>
+        <div (click)="jogar(1,1)" class="casa direita" [ngClass]="{'text-primary':jogo[1][1] === 'X', 'text-success':jogo[1][1] === 'O'}">{{jogo[1][1]}}</div>
+        <div (click)="jogar(1,2)" class="casa" [ngClass]="{'text-primary':jogo[1][2] === 'X', 'text-success':jogo[1][2] === 'O'}">{{jogo[1][2]}}</div>
+    </div>
+    <div class="linha">
+        <div (click)="jogar(2,0)" class="casa direita" [ngClass]="{'text-primary':jogo[2][0] === 'X', 'text-success':jogo[2][0] === 'O'}">{{jogo[2][0]}}</div>
+        <div (click)="jogar(2,1)" class="casa direita" [ngClass]="{'text-primary':jogo[2][1] === 'X', 'text-success':jogo[2][1] === 'O'}">{{jogo[2][1]}}</div>
+        <div (click)="jogar(2,2)" class="casa" [ngClass]="{'text-primary':jogo[2][2] === 'X', 'text-success':jogo[2][2] === 'O'}">{{jogo[2][2]}}</div>
+    </div>
+    </section>
+    <p *ngIf="!finalizado && contador < 9 && tempo > 0">{{jogadorAtual}} joga</p>
+    <p *ngIf="finalizado && tempo > 0">{{jogadorAtual}} venceu!</p>
+    <p *ngIf="!finalizado && contador == 9 || tempo == 0">Empate!</p>
+    <button class="btn btn-warning" (click)="reiniciar()">Novo jogo</button>
+</div>

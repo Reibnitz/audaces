@@ -1,0 +1,41 @@
+.jogo {
+    width: 300px;
+    padding: 30px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px #00000034;
+
+    .tabuleiro {
+        margin: 15px 0;
+
+        .linha {
+            display:flex;
+            width: 150px;
+
+            .casa {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 25px;
+                height: 25px;
+                padding: 25px;
+                font-weight: 500;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            .direita {
+                border-right: 1px solid black;
+            }
+        }
+
+        .baixo {
+            border-bottom: 1px solid black;
+        }
+    }
+}
